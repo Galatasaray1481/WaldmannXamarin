@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Waldmann.Register"
+             BackgroundColor="#FFDEDEDE">
+    <ContentPage.Content>
+
+        <StackLayout Margin="32, 64, 32, 0">
+            <Entry Placeholder="Vorname" x:Name="entName" />
+            <Entry Placeholder="Nachname" x:Name="entsurName" />
+
+
+            <Entry Placeholder="E-mail" x:Name="entEmail" />
+            <StackLayout Grid.Row="1" 
+                 Orientation="Horizontal"
+                 Spacing="1" >
+
+                <Entry x:Name="entPassword"
+                           Placeholder="Passwort" 
+               TextColor="Black" IsPassword="True"
+               HorizontalOptions="FillAndExpand" 
+               VerticalOptions="CenterAndExpand" >
+                </Entry>
+                <Image x:Name="infoPasswort" 
+               Aspect="AspectFit" 
+               HorizontalOptions="Center" 
+               VerticalOptions="CenterAndExpand" 
+               HeightRequest="40" 
+               WidthRequest="40">
+                </Image>
+            </StackLayout>
+            <Entry  Placeholder="Passwort bestätigen" x:Name="entConfPassword" IsPassword="True" />
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                    <Picker  x:Name="schoolCombo"  
+                            Title="Rolle" FontSize="18"  IsVisible="True"
+                            />
+
+                </StackLayout>
+            </StackLayout>
+            <Button Text="Registrierung" 
+                    x:Name="btnRegister" Clicked="register_click" TextColor="White" 
+                     Margin="32, 22, 32, 0" BackgroundColor="#006400"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

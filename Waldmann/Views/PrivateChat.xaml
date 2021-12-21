@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Waldmann.PrivateChat">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ListView Grid.Row="0" x:Name="ListView1" ItemsSource="{Binding ItemClass}" IsPullToRefreshEnabled="True" HasUnevenRows="true" SeparatorVisibility="Default" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding name}"
+                                           x:Name="lblName"
+                                        FontAttributes="Bold" />
+                                    <Label Text="{Binding msgContent}"
+                                           x:Name="lblUname"
+                                        TextColor="Gray" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid Grid.Row="1" RowSpacing="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Entry Placeholder="Write Message .." Grid.Column="0" x:Name="msgContent"/>
+                <Button Text="Send!" Grid.Column="1" x:Name="btnSendMsg" Clicked="sendMsg_click"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xf:BottomBarPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:xf="clr-namespace:BottomBar.XamarinForms" 
+                  xmlns:local="clr-namespace:Waldmann.Views"
+                  x:Class="Waldmann.BottomNavBar">
+
+    <NavigationPage.TitleView Text="Profil suchen" BackgroundColor="#FFFFFFF">
+
+        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand">
+                <Label Text="Wildbretkauf" Margin="24,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="16"
+                       FontAttributes="Bold" TextColor="White">
+                </Label>
+            </StackLayout>
+            <StackLayout Orientation="Vertical"  HorizontalOptions="EndAndExpand">
+                <Image x:Name="FilterIcon"  Margin="0,0,7,0"
+                       HorizontalOptions="End" VerticalOptions="Start" >
+                </Image>
+
+            </StackLayout>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <local:MenuCard Title="Home"
+                       Icon="ic_home.png"
+                       xf:BottomBarPageExtensions.TabColor="#5F7336"
+                       xf:BottomBarPageExtensions.BadgeColor="DeepPink" />
+    
+    <local:MenuCard Title="Favorites"
+                         Icon="ic_heart.png" />
+
+    <local:MenuCard Title="User"
+                       Icon="ic_user.png"
+                       xf:BottomBarPageExtensions.TabColor="#5F7336"
+                       xf:BottomBarPageExtensions.BadgeColor="DeepPink" />
+
+    <local:MenuCard Title="Overview"
+                       Icon="ic_overview.png"
+                       xf:BottomBarPageExtensions.TabColor="#5F7336"
+                       xf:BottomBarPageExtensions.BadgeColor="DeepPink" />
+
+    <local:MenuCard Title="Cart"
+                       Icon="ic_cart.png"
+                       xf:BottomBarPageExtensions.TabColor="#5F7336"
+                       xf:BottomBarPageExtensions.BadgeColor="DeepPink" />
+</xf:BottomBarPage>

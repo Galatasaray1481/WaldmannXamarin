@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Waldmann.Login"
+             BackgroundColor="#FFDEDEDE">
+        <!--
+    <StackLayout>
+        <Image x:Name="BTLogo"/>
+        <Entry Placeholder="Username" x:Name="entUsername" />
+            <Entry Placeholder="Passwort" x:Name="entPassword" IsPassword="True"/>
+            <Button Text="Anmelden" x:Name="btnLogin" Clicked="login_click" TextColor="White" BackgroundColor="#E74C3C"/>
+            <Button Text="Registriere Dich" x:Name="btnRegisterHere" Clicked="registerHere_click" TextColor="White" BackgroundColor="#E74C3C"/>
+    </StackLayout>
+        -->
+        <ContentPage.Content>
+
+        <StackLayout Margin="32, 64, 32, 0">
+            <Image x:Name="WMLogo"/>
+                <Entry Placeholder="Email" x:Name="entName" />
+            <Entry Placeholder="Passwort" x:Name="entsurName" />
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                
+            </StackLayout>
+
+
+            <Button Text="Login" 
+                    x:Name="btnLogin" Clicked="login_click" TextColor="White" 
+                     Margin="32, 22, 32, 0" BackgroundColor="#006400"/>
+            <!-- 008800-->
+            <Button Text="Registriere Dich" 
+                    x:Name="btnRegisterHere" Clicked="registerHere_click" TextColor="White" 
+                     Margin="32, 22, 32, 0" BackgroundColor="#006400"/>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

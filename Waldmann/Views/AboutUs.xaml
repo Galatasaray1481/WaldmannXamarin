@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Waldmann.Views.AboutUs"
+             BackgroundColor="#FFDEDEDE">
+    <NavigationPage.TitleView>
+        <Label HorizontalOptions="End"
+           VerticalOptions="Start" 
+               TextColor="White"
+                x:Name="xCash"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+            <Image x:Name="BTLogo"/>
+            <Label Text="" 
+           HorizontalOptions="Center"
+           VerticalOptions="Start" />
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

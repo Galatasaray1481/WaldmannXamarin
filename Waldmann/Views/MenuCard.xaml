@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Waldmann.Views.MenuCard"
+             BackgroundColor="#FFFFFFF">
+    <NavigationPage.TitleView Text="Profil suchen" BackgroundColor="#FFFFFFF">
+
+        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand">
+                <Label Text="Wildbretkauf" Margin="24,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="16"
+                       FontAttributes="Bold" TextColor="White">
+                </Label>
+            </StackLayout>
+            <StackLayout Orientation="Vertical"  HorizontalOptions="EndAndExpand">
+                <Image x:Name="FilterIcon" Margin="0,0,7,0"
+                       HorizontalOptions="End" VerticalOptions="Start" >
+                </Image>
+
+            </StackLayout>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 0,0 -->
+                <Frame OutlineColor="#B7B7B7" Margin="8,8,8,8" HasShadow="False" 
+                       BackgroundColor="Transparent"
+                       CornerRadius="16" HorizontalOptions="Start"
+                       HeightRequest="160" WidthRequest="160" Padding="0">
+
+                    <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" Spacing="0">
+                        <Image x:Name="porkHeart"
+                       VerticalOptions="End" HorizontalOptions="End" Margin="0,8,8,0" >
+                        </Image>
+                        <Image x:Name="porkFlesh"  Grid.Row="0" Grid.Column="0"
+                       VerticalOptions="Center" HorizontalOptions="Center"  Margin="0,0,0,0">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                Tapped="houseTasteTapped"
+                NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <StackLayout Padding="0,0,0,0"  Spacing="0">
+                            <StackLayout VerticalOptions="FillAndExpand" Spacing="0">
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Wildschwein&#10;Nackensteaks" FontSize="14"
+                                           YAlign="Center"  XAlign="Center" TextColor="#262626"
+                                           HorizontalOptions="Center" VerticalOptions="Center"
+                                           />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Label Text="34,90 € / kg" FontSize="14"
+                                           YAlign="Center"  XAlign="Center" TextColor="#365B73"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Image x:Name="porkRV" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" 
+                                           HorizontalOptions="Center" Margin="0,0,0,0">
+                                    </Image>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- 0,1 -->
+                <Frame OutlineColor="#B7B7B7" Margin="8,8,8,8" HasShadow="False" 
+                       BackgroundColor="Transparent"
+                       CornerRadius="16" HorizontalOptions="Start"
+                       HeightRequest="160" WidthRequest="160" Padding="0"
+                       Grid.Row="0" Grid.Column="1">
+
+                    <StackLayout Orientation="Vertical" Spacing="0">
+                        <StackLayout Padding="0,0,0,0"  Spacing="0">
+                            <StackLayout VerticalOptions="FillAndExpand" Spacing="0">
+                                <!-- -->
+                                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical"  HorizontalOptions="EndAndExpand" Spacing="0" Padding="0">
+                                        <Image x:Name="deerHeart" Margin="0,8,8,0" ></Image>
+                                    </StackLayout>
+                                </StackLayout>
+                                <!-- -->
+                                <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand"  Spacing="0" Padding="0">
+                                    <Image x:Name="deerFlesh">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Tapped="houseTasteTapped" NumberOfTapsRequired="1"
+                                                />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Hirschsteak&#10;vom Rückenfilet" FontSize="14"
+                                           YAlign="Center"  XAlign="Center" TextColor="#262626"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Label Text="69,90 € / kg" FontSize="14"
+                                           YAlign="Center"  XAlign="Center" TextColor="#365B73"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Image x:Name="deerRV" VerticalOptions="Center" 
+                                           HorizontalOptions="Center" Margin="0,0,0,0">
+                                    </Image>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- 1,0 -->
+                <Frame OutlineColor="#B7B7B7" Margin="8,8,8,8" HasShadow="False" 
+                       BackgroundColor="Transparent"
+                       CornerRadius="16" HorizontalOptions="Start"
+                       HeightRequest="160" WidthRequest="160" Padding="0"
+                       Grid.Row="1" Grid.Column="0">
+
+                    <StackLayout Orientation="Vertical" Spacing="0">
+                        <StackLayout Padding="0,0,0,0"  Spacing="0">
+                            <StackLayout VerticalOptions="FillAndExpand" Spacing="0">
+                                <!-- -->
+                                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical"  HorizontalOptions="EndAndExpand" Spacing="0" Padding="0">
+                                        <Image x:Name="porkMinuteHeart" Margin="0,8,8,0" ></Image>
+                                    </StackLayout>
+                                </StackLayout>
+                                <!-- -->
+                                <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand"  Spacing="0" Padding="0">
+                                    <Image x:Name="porkMinute">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Tapped="houseTasteTapped" NumberOfTapsRequired="1"
+                                                />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Wildschweinrücken&#10;ohne Knochen" FontSize="14"
+                                           YAlign="Center"  XAlign="Center" TextColor="#262626"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Label Text="69,90 € / kg" FontSize="14"
+                                           YAlign="Center"  XAlign="Center" TextColor="#365B73"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Image x:Name="porkMinRV" VerticalOptions="Center" 
+                                           HorizontalOptions="Center" Margin="0,0,0,0">
+                                    </Image>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- 1,1 -->
+                <Frame OutlineColor="#B7B7B7" Margin="8,8,8,8" HasShadow="False" 
+                       BackgroundColor="Transparent"
+                       CornerRadius="16" HorizontalOptions="Start"
+                       HeightRequest="160" WidthRequest="160" Padding="0"
+                       Grid.Row="1" Grid.Column="1">
+
+                    <StackLayout Orientation="Vertical" Spacing="0">
+                        <StackLayout Padding="0,0,0,0"  Spacing="0">
+                            <StackLayout VerticalOptions="FillAndExpand" Spacing="0">
+                                <!-- -->
+                                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical"  HorizontalOptions="EndAndExpand" Spacing="0" Padding="0">
+                                        <Image x:Name="deerSteakHeart" Margin="0,8,8,0" ></Image>
+                                    </StackLayout>
+                                </StackLayout>
+                                <!-- -->
+                                <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand"  Spacing="0" Padding="0">
+                                    <Image x:Name="deerSteak">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Tapped="houseTasteTapped" NumberOfTapsRequired="1"
+                                                />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Hirschsteak&#10;aus Keule" FontSize="14"
+                                           YAlign="Center"  XAlign="Center" TextColor="#262626"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Label Text="69,90 € / kg" FontSize="14"
+                                           YAlign="Center"  XAlign="Center" TextColor="#365B73"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Image x:Name="deerSteakRV" VerticalOptions="Center" 
+                                           HorizontalOptions="Center" Margin="0,0,0,0">
+                                    </Image>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- 2,0 -->
+                <Frame OutlineColor="#B7B7B7" Margin="8,8,8,8" HasShadow="False" 
+                       BackgroundColor="Transparent"
+                       CornerRadius="16" HorizontalOptions="Start"
+                       HeightRequest="160" WidthRequest="160" Padding="0"
+                       Grid.Row="2" Grid.Column="0">
+
+                    <StackLayout Orientation="Vertical" Spacing="0">
+                        <StackLayout Padding="0,0,0,0"  Spacing="0">
+                            <StackLayout VerticalOptions="FillAndExpand" Spacing="0">
+                                <!-- -->
+                                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical"  HorizontalOptions="EndAndExpand" Spacing="0" Padding="0">
+                                        <Image x:Name="roeDeerHeart" Margin="0,8,8,0" ></Image>
+                                    </StackLayout>
+                                </StackLayout>
+                                <!-- -->
+                                <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand"  Spacing="0" Padding="0">
+                                    <Image x:Name="roeDeer">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Tapped="houseTasteTapped" NumberOfTapsRequired="1"
+                                                />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Rehsteak&#10;aus Keule" FontSize="14"
+                                           YAlign="Center"  XAlign="Center" TextColor="#262626"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Label Text="69,90 € / kg" FontSize="14"
+                                           YAlign="Center"  XAlign="Center" TextColor="#365B73"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Image x:Name="roeDeerRV" VerticalOptions="Center" 
+                                           HorizontalOptions="Center" Margin="0,0,0,0">
+                                    </Image>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- 2,1 -->
+                <Frame OutlineColor="#B7B7B7" Margin="8,8,8,8" HasShadow="False" 
+                       BackgroundColor="Transparent"
+                       CornerRadius="16" HorizontalOptions="Start"
+                       HeightRequest="160" WidthRequest="160" Padding="0"
+                       Grid.Row="2" Grid.Column="1">
+
+                    <StackLayout Orientation="Vertical" Spacing="0">
+                        <StackLayout Padding="0,0,0,0"  Spacing="0">
+                            <StackLayout VerticalOptions="FillAndExpand" Spacing="0">
+                                <!-- -->
+                                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical"  HorizontalOptions="EndAndExpand" Spacing="0" Padding="0">
+                                        <Image x:Name="wildPorkHeart" Margin="0,8,8,0" ></Image>
+                                    </StackLayout>
+                                </StackLayout>
+                                <!-- -->
+                                <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand"  Spacing="0" Padding="0">
+                                    <Image x:Name="wildPork">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Tapped="houseTasteTapped" NumberOfTapsRequired="1"
+                                                />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Wildschweinsteak&#10;aus Keule" FontSize="14"
+                                           YAlign="Center"  XAlign="Center" TextColor="Black"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Label Text="69,90 € / kg" FontSize="14"
+                                           YAlign="Center"  XAlign="Center" TextColor="#365B73"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0" Margin="0"  
+                                             HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Image x:Name="wildPorkRV" VerticalOptions="Center" 
+                                           HorizontalOptions="Center" Margin="0,0,0,0">
+                                    </Image>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

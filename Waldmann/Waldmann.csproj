@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NewFolder\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <None Remove="NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Images\filtericon_cut.png" />
+    <None Remove="Images\fourStars.png" />
+    <None Remove="Images\Hirschsteak_cutted.png" />
+    <None Remove="Images\Hirschsteak_Keule.png" />
+    <None Remove="Images\Hirschsteak_Ruckenfilet.jpg" />
+    <None Remove="Images\redcircle.png" />
+    <None Remove="Images\Rehsteak_Keule.png" />
+    <None Remove="Images\schweinesteak-kaufen.png" />
+    <None Remove="Images\schweinesteak_kaufen_cut.png" />
+    <None Remove="Images\SchweinMinutensteak.png" />
+    <None Remove="Images\WaldmannLogo.png" />
+    <None Remove="Images\WildschweinRuecken.png" />
+    <None Remove="Images\Wildschweinsteak_Keule.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\filtericon_cut.png" />
+    <EmbeddedResource Include="Images\fourStars.png" />
+    <EmbeddedResource Include="Images\Hirschsteak_cutted.png" />
+    <EmbeddedResource Include="Images\Hirschsteak_Keule.png" />
+    <EmbeddedResource Include="Images\Hirschsteak_Ruckenfilet.jpg" />
+    <EmbeddedResource Include="Images\redcircle.png" />
+    <EmbeddedResource Include="Images\Rehsteak_Keule.png" />
+    <EmbeddedResource Include="Images\schweinesteak-kaufen.png" />
+    <EmbeddedResource Include="Images\schweinesteak_kaufen_cut.png" />
+    <EmbeddedResource Include="Images\SchweinMinutensteak.png" />
+    <EmbeddedResource Include="Images\WaldmannLogo.png" />
+    <EmbeddedResource Include="Images\WildschweinRuecken.png" />
+    <EmbeddedResource Include="Images\Wildschweinsteak_Keule.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="BottomNavBar.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainPageDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainPageMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Register.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PrivateChat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
