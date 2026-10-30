@@ -99,7 +99,7 @@ jobs:
           /nologo /v:m
 
       - name: Upload release artefact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: release-${{ steps.version.outputs.name }}
           path: src/Waldmann.Android/bin/Release/*-Signed.apk
