@@ -1,0 +1,39 @@
+name: Set up Xamarin.Android build
+description: >
+  JDK 17, the .NET SDK from global.json (for the SDK-style projects in the build graph), MSBuild from
+  Visual Studio 2022 with its Xamarin component, and the Android 13 (API 33) platform. Only the
+  windows-2022 runner image still ships Visual Studio 2022 with Xamarin — see docs/SETUP.md.
+
+runs:
+  using: composite
+  steps:
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: '17'
+
+    - name: Set up .NET (version from global.json)
+      uses: actions/setup-dotnet@v4
+      with:
+        global-json-file: global.json
+
+    # Pinned to Visual Studio 2022: Visual Studio 2026 no longer contains Xamarin.
+    - name: Set up MSBuild (Visual Studio 2022)
+      uses: microsoft/setup-msbuild@v2
+      with:
+        vs-version: '[17.0,18.0)'
+
+    - name: Cache NuGet packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.nuget/packages
+        key: nuget-xamarin-${{ runner.os }}-${{ hashFiles('Directory.Packages.props', '**/*.csproj', 'global.json') }}
+        restore-keys: nuget-xamarin-${{ runner.os }}-
+
+    - name: Install Android platform 33
+      shell: pwsh
+      run: |
+        $sdkmanager = Join-Path $env:ANDROID_SDK_ROOT 'cmdline-tools/latest/bin/sdkmanager.bat'
+        (1..20 | ForEach-Object { 'y' }) | & $sdkmanager --install 'platforms;android-33' 'build-tools;33.0.2' | Out-Null
+        if ($LASTEXITCODE -ne 0) { throw 'sdkmanager failed' }

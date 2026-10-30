@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ViewModelPage xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:views="clr-namespace:Waldmann.Views"
+                     xmlns:vm="clr-namespace:Waldmann.Presentation.Features.Registration;assembly=Waldmann.Presentation"
+                     xmlns:res="clr-namespace:Waldmann.Presentation.Resources;assembly=Waldmann.Presentation"
+                     x:Class="Waldmann.Views.RegistrationPage"
+                     x:DataType="vm:RegistrationViewModel"
+                     Title="{x:Static res:Strings.Registration_Title}"
+                     Shell.FlyoutBehavior="Disabled">
+    <ScrollView>
+        <StackLayout Margin="32,24" Spacing="12">
+            <Entry Placeholder="{x:Static res:Strings.Registration_FirstName}" Text="{Binding FirstName}" />
+            <Entry Placeholder="{x:Static res:Strings.Registration_LastName}" Text="{Binding LastName}" />
+            <Entry Placeholder="{x:Static res:Strings.Registration_Email}" Text="{Binding Email}" Keyboard="Email" />
+            <Entry Placeholder="{x:Static res:Strings.Registration_Password}" Text="{Binding Password}" IsPassword="True" />
+            <Label Text="{Binding PasswordHint}" Style="{StaticResource Secondary}" />
+            <Entry Placeholder="{x:Static res:Strings.Registration_PasswordConfirmation}" Text="{Binding PasswordConfirmation}" IsPassword="True" />
+            <!-- Items are shown via RoleOption.ToString(); Xamarin.Forms cannot compile an
+                 ItemDisplayBinding against a different x:DataType than the page's. -->
+            <Picker Title="{x:Static res:Strings.Registration_Role}"
+                    ItemsSource="{Binding Roles}"
+                    SelectedItem="{Binding SelectedRole}"
+                    AutomationId="RolePicker" />
+
+            <Label Text="{Binding ValidationMessage}" IsVisible="{Binding HasValidationMessage}" Style="{StaticResource ValidationText}" />
+
+            <Button Text="{x:Static res:Strings.Registration_Submit}" Command="{Binding RegisterCommand}" Margin="0,12,0,0" />
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="{StaticResource Accent}" />
+        </StackLayout>
+    </ScrollView>
+</views:ViewModelPage>

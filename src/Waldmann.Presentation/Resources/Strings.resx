@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppName" xml:space="preserve">
+    <value>Waldmann</value>
+  </data>
+  <data name="Common_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Common_NoticeTitle" xml:space="preserve">
+    <value>Hinweis</value>
+  </data>
+  <data name="Common_InPreparation" xml:space="preserve">
+    <value>In Vorbereitung</value>
+  </data>
+  <data name="Shell_Offers" xml:space="preserve">
+    <value>Wildbretkauf</value>
+  </data>
+  <data name="Shell_Permits" xml:space="preserve">
+    <value>Begehungsscheine kaufen</value>
+  </data>
+  <data name="Shell_Events" xml:space="preserve">
+    <value>Events u. Schießstände</value>
+  </data>
+  <data name="Shell_Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Shell_Hunters" xml:space="preserve">
+    <value>Jäger finden</value>
+  </data>
+  <data name="Shell_Chats" xml:space="preserve">
+    <value>Chats</value>
+  </data>
+  <data name="Shell_HuntingLaw" xml:space="preserve">
+    <value>Jagdrecht einsehen</value>
+  </data>
+  <data name="Shell_Cart" xml:space="preserve">
+    <value>Warenkorb</value>
+  </data>
+  <data name="Shell_SignOut" xml:space="preserve">
+    <value>Abmelden</value>
+  </data>
+  <data name="SignIn_Title" xml:space="preserve">
+    <value>Anmelden</value>
+  </data>
+  <data name="SignIn_Email" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="SignIn_Password" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="SignIn_Submit" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="SignIn_Register" xml:space="preserve">
+    <value>Registriere Dich</value>
+  </data>
+  <data name="SignIn_PrototypeHint" xml:space="preserve">
+    <value>Prototyp ohne Server: Alle Daten liegen nur im Speicher der App. Demo-Zugang: {0} / {1}</value>
+  </data>
+  <data name="SignIn_UseDemoAccount" xml:space="preserve">
+    <value>Demo-Zugang eintragen</value>
+  </data>
+  <data name="Registration_Title" xml:space="preserve">
+    <value>Registrierung</value>
+  </data>
+  <data name="Registration_FirstName" xml:space="preserve">
+    <value>Vorname</value>
+  </data>
+  <data name="Registration_LastName" xml:space="preserve">
+    <value>Nachname</value>
+  </data>
+  <data name="Registration_Email" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="Registration_Password" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="Registration_PasswordHint" xml:space="preserve">
+    <value>Mindestens {0} Zeichen.</value>
+  </data>
+  <data name="Registration_PasswordConfirmation" xml:space="preserve">
+    <value>Passwort bestätigen</value>
+  </data>
+  <data name="Registration_Role" xml:space="preserve">
+    <value>Rolle</value>
+  </data>
+  <data name="Registration_Submit" xml:space="preserve">
+    <value>Registrierung</value>
+  </data>
+  <data name="Registration_SuccessTitle" xml:space="preserve">
+    <value>Konto erstellt</value>
+  </data>
+  <data name="Registration_SuccessMessage" xml:space="preserve">
+    <value>Ihr Konto wurde angelegt. Sie können sich jetzt anmelden.</value>
+  </data>
+  <data name="Role_Hunter" xml:space="preserve">
+    <value>Jäger/in</value>
+  </data>
+  <data name="Role_GameMeatBuyer" xml:space="preserve">
+    <value>Wildbretkäufer/in</value>
+  </data>
+  <data name="Offers_Title" xml:space="preserve">
+    <value>Wildbretkauf</value>
+  </data>
+  <data name="Offers_PricePerKg" xml:space="preserve">
+    <value>{0} / kg</value>
+  </data>
+  <data name="Offers_RatingDescription" xml:space="preserve">
+    <value>{0} von {1} Sternen</value>
+  </data>
+  <data name="Animal_WildBoar" xml:space="preserve">
+    <value>Wildschwein</value>
+  </data>
+  <data name="Animal_RedDeer" xml:space="preserve">
+    <value>Hirsch</value>
+  </data>
+  <data name="Animal_RoeDeer" xml:space="preserve">
+    <value>Reh</value>
+  </data>
+  <data name="Profile_Title" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Profile_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Profile_Email" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="Profile_Role" xml:space="preserve">
+    <value>Rolle</value>
+  </data>
+  <data name="Profile_EditingInPreparation" xml:space="preserve">
+    <value>Profil bearbeiten und Konto löschen sind in Vorbereitung.</value>
+  </data>
+  <data name="Chats_Title" xml:space="preserve">
+    <value>Chats</value>
+  </data>
+  <data name="Chats_Sender" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="Chats_MessagePlaceholder" xml:space="preserve">
+    <value>Nachricht schreiben …</value>
+  </data>
+  <data name="Chats_SendingInPreparation" xml:space="preserve">
+    <value>Nachrichten senden ist in Vorbereitung.</value>
+  </data>
+  <data name="Upcoming_Permits_Description" xml:space="preserve">
+    <value>Hier können Sie künftig Begehungsscheine für Reviere erwerben.</value>
+  </data>
+  <data name="Upcoming_Events_Description" xml:space="preserve">
+    <value>Hier finden Sie künftig Jagd-Events und Schießstände in Ihrer Nähe.</value>
+  </data>
+  <data name="Upcoming_Hunters_Description" xml:space="preserve">
+    <value>Hier können Sie künftig Jägerinnen und Jäger in Ihrer Region finden.</value>
+  </data>
+  <data name="Upcoming_HuntingLaw_Description" xml:space="preserve">
+    <value>Hier können Sie künftig das geltende Jagdrecht nachlesen.</value>
+  </data>
+  <data name="Upcoming_Cart_Description" xml:space="preserve">
+    <value>Hier sehen Sie künftig Ihren Warenkorb mit ausgewähltem Wildbret.</value>
+  </data>
+  <data name="Error_InvalidCredentials" xml:space="preserve">
+    <value>E-Mail-Adresse oder Passwort ist falsch.</value>
+  </data>
+  <data name="Error_AccountAlreadyExists" xml:space="preserve">
+    <value>Für diese E-Mail-Adresse gibt es bereits ein Konto.</value>
+  </data>
+  <data name="Error_NotSignedIn" xml:space="preserve">
+    <value>Bitte melden Sie sich erneut an.</value>
+  </data>
+  <data name="Validation_FirstNameRequired" xml:space="preserve">
+    <value>Bitte geben Sie Ihren Vornamen ein.</value>
+  </data>
+  <data name="Validation_LastNameRequired" xml:space="preserve">
+    <value>Bitte geben Sie Ihren Nachnamen ein.</value>
+  </data>
+  <data name="Validation_EmailInvalid" xml:space="preserve">
+    <value>Bitte geben Sie eine gültige E-Mail-Adresse ein.</value>
+  </data>
+  <data name="Validation_PasswordRequired" xml:space="preserve">
+    <value>Bitte geben Sie Ihr Passwort ein.</value>
+  </data>
+  <data name="Validation_PasswordTooShort" xml:space="preserve">
+    <value>Das Passwort muss mindestens {0} Zeichen lang sein.</value>
+  </data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve">
+    <value>Die Passwörter stimmen nicht überein.</value>
+  </data>
+  <data name="Validation_RoleRequired" xml:space="preserve">
+    <value>Bitte wählen Sie eine Rolle.</value>
+  </data>
+</root>

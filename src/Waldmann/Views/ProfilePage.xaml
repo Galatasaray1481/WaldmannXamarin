@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ViewModelPage xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:views="clr-namespace:Waldmann.Views"
+                     xmlns:vm="clr-namespace:Waldmann.Presentation.Features.Profile;assembly=Waldmann.Presentation"
+                     xmlns:res="clr-namespace:Waldmann.Presentation.Resources;assembly=Waldmann.Presentation"
+                     x:Class="Waldmann.Views.ProfilePage"
+                     x:DataType="vm:ProfileViewModel"
+                     Title="{x:Static res:Strings.Profile_Title}">
+    <ScrollView>
+        <StackLayout Margin="24" Spacing="16">
+            <Frame Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="16" RowSpacing="10">
+                    <Label Text="{x:Static res:Strings.Profile_Name}" Style="{StaticResource Secondary}" />
+                    <Label Grid.Column="1" Text="{Binding DisplayName}" FontAttributes="Bold" />
+                    <Label Grid.Row="1" Text="{x:Static res:Strings.Profile_Email}" Style="{StaticResource Secondary}" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Email}" />
+                    <Label Grid.Row="2" Text="{x:Static res:Strings.Profile_Role}" Style="{StaticResource Secondary}" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding RoleText}" />
+                </Grid>
+            </Frame>
+            <Label Text="{x:Static res:Strings.Common_InPreparation}" Style="{StaticResource Badge}" />
+            <Label Text="{x:Static res:Strings.Profile_EditingInPreparation}" Style="{StaticResource Secondary}" />
+        </StackLayout>
+    </ScrollView>
+</views:ViewModelPage>

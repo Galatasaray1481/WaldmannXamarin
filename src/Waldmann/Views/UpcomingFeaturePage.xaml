@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ViewModelPage xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:views="clr-namespace:Waldmann.Views"
+                     xmlns:local="clr-namespace:Waldmann"
+                     xmlns:vm="clr-namespace:Waldmann.Presentation.Features.Upcoming;assembly=Waldmann.Presentation"
+                     x:Class="Waldmann.Views.UpcomingFeaturePage"
+                     x:DataType="vm:UpcomingFeatureViewModel"
+                     Title="{Binding Title}">
+    <StackLayout Margin="32,48" Spacing="16">
+        <Image Source="{local:EmbeddedImage waldmann_logo}" HeightRequest="120" Opacity="0.6" />
+        <Label Text="{Binding Title}" Style="{StaticResource Headline}" HorizontalTextAlignment="Center" />
+        <Label Text="{Binding Status}" Style="{StaticResource Badge}" HorizontalOptions="Center" />
+        <Label Text="{Binding Description}" HorizontalTextAlignment="Center" Style="{StaticResource Secondary}" FontSize="15" />
+    </StackLayout>
+</views:ViewModelPage>

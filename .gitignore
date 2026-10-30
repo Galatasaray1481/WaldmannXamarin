@@ -1,0 +1,30 @@
+## Build output
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+.vs/
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+## Test and coverage output
+TestResults/
+coverage/
+
+## Packaging output
+artifacts/
+*.apk
+*.aab
+*.ipa
+*.dSYM/
+
+## Signing material must never be committed
+*.jks
+*.keystore
+*.p12
+*.mobileprovision
+
+.DS_Store

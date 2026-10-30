@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Waldmann.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!-- Colours of the legacy prototype: forest green bars, dark green buttons, grey pages. -->
+            <Color x:Key="Primary">#5F7336</Color>
+            <Color x:Key="Accent">#006400</Color>
+            <Color x:Key="OnPrimary">#FFFFFF</Color>
+            <Color x:Key="PageBackground">#EDEDE8</Color>
+            <Color x:Key="Surface">#FFFFFF</Color>
+            <Color x:Key="TextPrimary">#212121</Color>
+            <Color x:Key="TextSecondary">#5F5F5F</Color>
+            <Color x:Key="Error">#B3261E</Color>
+            <Color x:Key="Rating">#C99700</Color>
+
+            <Style TargetType="Shell" ApplyToDerivedTypes="True">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource OnPrimary}" />
+                <Setter Property="Shell.TitleColor" Value="{StaticResource OnPrimary}" />
+                <Setter Property="Shell.FlyoutBackgroundColor" Value="{StaticResource PageBackground}" />
+            </Style>
+
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{StaticResource PageBackground}" />
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource TextPrimary}" />
+                <Setter Property="FontSize" Value="15" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="{StaticResource TextPrimary}" />
+                <Setter Property="PlaceholderColor" Value="{StaticResource TextSecondary}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
+            </Style>
+
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="{StaticResource TextPrimary}" />
+                <Setter Property="TitleColor" Value="{StaticResource TextSecondary}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Accent}" />
+                <Setter Property="TextColor" Value="{StaticResource OnPrimary}" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="16,12" />
+            </Style>
+
+            <Style x:Key="SecondaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource Accent}" />
+                <Setter Property="BorderColor" Value="{StaticResource Accent}" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="8" />
+            </Style>
+
+            <Style x:Key="Headline" TargetType="Label">
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style x:Key="Secondary" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource TextSecondary}" />
+                <Setter Property="FontSize" Value="13" />
+            </Style>
+
+            <Style x:Key="ValidationText" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Error}" />
+            </Style>
+
+            <Style x:Key="Badge" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="TextColor" Value="{StaticResource OnPrimary}" />
+                <Setter Property="Padding" Value="10,4" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+            </Style>
+
+            <Style x:Key="Card" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="Padding" Value="12" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

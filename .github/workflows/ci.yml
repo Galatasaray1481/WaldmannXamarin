@@ -1,0 +1,133 @@
+name: CI
+
+# The gate for every change. The test job runs the same script developers run locally
+# (scripts/Test.ps1); the Android job builds the APKs with Visual Studio 2022's MSBuild, the only
+# toolchain that still contains Xamarin.
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master' }}
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_NOLOGO: 'true'
+  DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
+
+jobs:
+  # Runs on github.com in this repository only: not in forks, not on GitHub Enterprise Server mirrors,
+  # not in local runners such as nektos/act. Every other job depends on this decision.
+  guard:
+    name: Run only on GitHub
+    runs-on: ubuntu-latest
+    outputs:
+      allowed: ${{ steps.check.outputs.allowed }}
+    steps:
+      - id: check
+        env:
+          SERVER_URL: ${{ github.server_url }}
+          IS_FORK: ${{ github.event.repository.fork }}
+        run: |
+          reason=''
+          if [ -n "${ACT:-}" ]; then reason='local runner (act)'
+          elif [ "$SERVER_URL" != 'https://github.com' ]; then reason="server $SERVER_URL"
+          elif [ "$IS_FORK" = 'true' ]; then reason='fork'
+          fi
+          if [ -n "$reason" ]; then
+            echo 'allowed=false' >> "$GITHUB_OUTPUT"
+            echo "::notice::CI skipped: $reason. This pipeline only runs on github.com in the original repository."
+          else
+            echo 'allowed=true' >> "$GITHUB_OUTPUT"
+          fi
+
+  # Core, Infrastructure and Presentation are netstandard2.0 and the tests net10.0: no Xamarin needed,
+  # so this runs on the fast Linux runner.
+  test:
+    name: Unit, integration & architecture tests + coverage
+    needs: guard
+    if: needs.guard.outputs.allowed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ runner.os }}-${{ hashFiles('Directory.Packages.props', '**/*.csproj', 'global.json') }}
+          restore-keys: nuget-${{ runner.os }}-
+
+      - name: Test with coverage
+        shell: pwsh
+        run: ./scripts/Test.ps1 -Configuration Release -MinimumLineCoverage 90
+
+      - name: Coverage summary
+        if: always()
+        run: |
+          if [ -f coverage/SummaryGithub.md ]; then cat coverage/SummaryGithub.md >> "$GITHUB_STEP_SUMMARY"; fi
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          if-no-files-found: warn
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: TestResults/**/*.trx
+          if-no-files-found: warn
+
+  android:
+    name: Android APK (${{ matrix.configuration }})
+    needs: guard
+    if: needs.guard.outputs.allowed == 'true'
+    # windows-2022 is the last GitHub-hosted image with Visual Studio 2022 + Xamarin. When it is
+    # retired, this job needs a self-hosted Windows runner with Visual Studio 2022 (docs/SETUP.md).
+    runs-on: windows-2022
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        configuration: [ Debug, Release ]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-xamarin-android
+
+      - name: Set version
+        shell: pwsh
+        run: ./scripts/Set-AndroidVersion.ps1 -VersionCode ${{ github.run_number }} -VersionName 2.0.${{ github.run_number }}
+
+      # Without a keystore the APK is signed with the auto-generated debug key: installable, not for stores.
+      - name: Build APK
+        shell: pwsh
+        run: >
+          msbuild src/Waldmann.Android/Waldmann.Android.csproj
+          /restore
+          /t:SignAndroidPackage
+          /p:Configuration=${{ matrix.configuration }}
+          /p:JavaSdkDirectory="$env:JAVA_HOME"
+          /p:AndroidSdkDirectory="$env:ANDROID_SDK_ROOT"
+          /nologo /v:m
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: waldmann-${{ matrix.configuration }}-apk
+          path: src/Waldmann.Android/bin/${{ matrix.configuration }}/*-Signed.apk
+          if-no-files-found: error

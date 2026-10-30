@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ViewModelPage xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:views="clr-namespace:Waldmann.Views"
+                     xmlns:local="clr-namespace:Waldmann"
+                     xmlns:vm="clr-namespace:Waldmann.Presentation.Features.SignIn;assembly=Waldmann.Presentation"
+                     xmlns:res="clr-namespace:Waldmann.Presentation.Resources;assembly=Waldmann.Presentation"
+                     x:Class="Waldmann.Views.SignInPage"
+                     x:DataType="vm:SignInViewModel"
+                     Title="{x:Static res:Strings.SignIn_Title}"
+                     Shell.NavBarIsVisible="False"
+                     Shell.FlyoutBehavior="Disabled">
+    <ScrollView>
+        <StackLayout Margin="32,48,32,24" Spacing="12">
+            <Image Source="{local:EmbeddedImage waldmann_logo}" HeightRequest="180" AutomationProperties.Name="{x:Static res:Strings.AppName}" />
+
+            <Entry Placeholder="{x:Static res:Strings.SignIn_Email}"
+                   Text="{Binding Email}"
+                   Keyboard="Email"
+                   AutomationId="EmailEntry" />
+            <Entry Placeholder="{x:Static res:Strings.SignIn_Password}"
+                   Text="{Binding Password}"
+                   IsPassword="True"
+                   ReturnType="Go"
+                   ReturnCommand="{Binding SignInCommand}"
+                   AutomationId="PasswordEntry" />
+
+            <Label Text="{Binding ValidationMessage}" IsVisible="{Binding HasValidationMessage}" Style="{StaticResource ValidationText}" />
+
+            <Button Text="{x:Static res:Strings.SignIn_Submit}" Command="{Binding SignInCommand}" Margin="0,12,0,0" AutomationId="SignInButton" />
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="{StaticResource Accent}" />
+            <Button Text="{x:Static res:Strings.SignIn_Register}" Command="{Binding OpenRegistrationCommand}" Style="{StaticResource SecondaryButton}" />
+
+            <Frame Style="{StaticResource Card}" IsVisible="{Binding HasDemoAccount}" Margin="0,16,0,0">
+                <StackLayout Spacing="8">
+                    <Label Text="{Binding DemoHint}" Style="{StaticResource Secondary}" />
+                    <Button Text="{x:Static res:Strings.SignIn_UseDemoAccount}"
+                            Command="{Binding UseDemoAccountCommand}"
+                            Style="{StaticResource SecondaryButton}"
+                            AutomationId="UseDemoAccountButton" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</views:ViewModelPage>

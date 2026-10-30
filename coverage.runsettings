@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coverage settings shared by scripts/Test.ps1 and the CI workflow. Measured: the three layers that
+     contain logic (Core, Infrastructure, Presentation). Not measured: the Xamarin.Forms pages and the
+     platform heads — those are verified by the APK build and the smoke test, not by unit tests. -->
+<RunSettings>
+  <RunConfiguration>
+    <ResultsDirectory>./TestResults</ResultsDirectory>
+  </RunConfiguration>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat code coverage">
+        <Configuration>
+          <Format>cobertura</Format>
+          <Include>[Waldmann.Core]*,[Waldmann.Infrastructure]*,[Waldmann.Presentation]*</Include>
+          <Exclude>[Waldmann.Presentation]Waldmann.Presentation.Resources.*</Exclude>
+          <ExcludeByAttribute>GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute</ExcludeByAttribute>
+          <ExcludeByFile>**/obj/**</ExcludeByFile>
+          <SkipAutoProps>true</SkipAutoProps>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>

@@ -1,0 +1,32 @@
+<Project>
+
+  <!-- Shared settings. The Xamarin.Android/iOS head projects are classic (non-SDK) projects and
+       import this file too; the SDK-specific part is therefore guarded. -->
+  <PropertyGroup>
+    <!-- 13, not "latest": the Android head is built by Visual Studio 2022's MSBuild, whose compiler
+         knows C# 13. Pinning it keeps "dotnet build" and the Xamarin build on the same language. -->
+    <LangVersion>13.0</LangVersion>
+    <Company>Waldmann</Company>
+    <Product>Waldmann</Product>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(UsingMicrosoftNETSdk)' == 'true'">
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- CS1591: public API is documented where it is not self-explanatory, not mechanically everywhere. -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('Tests'))">
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <NoWarn>$(NoWarn);CA1707;CA1515;CA2007;CA1861</NoWarn>
+  </PropertyGroup>
+
+</Project>

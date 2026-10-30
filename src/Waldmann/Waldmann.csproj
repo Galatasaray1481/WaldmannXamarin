@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Xamarin.Forms UI: pages (XAML), Shell, Xamarin-specific services and the composition root.
+       Everything that can live without Xamarin.Forms is in Waldmann.Presentation. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Waldmann</RootNamespace>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <!-- UI code resumes on the UI thread after await. -->
+    <NoWarn>$(NoWarn);CA2007</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\*.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" />
+    <PackageReference Include="Xamarin.Essentials" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="PolySharp" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Waldmann.Core\Waldmann.Core.csproj" />
+    <ProjectReference Include="..\Waldmann.Infrastructure\Waldmann.Infrastructure.csproj" />
+    <ProjectReference Include="..\Waldmann.Presentation\Waldmann.Presentation.csproj" />
+  </ItemGroup>
+
+</Project>

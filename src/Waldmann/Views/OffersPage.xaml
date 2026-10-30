@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ViewModelPage xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:views="clr-namespace:Waldmann.Views"
+                     xmlns:local="clr-namespace:Waldmann"
+                     xmlns:vm="clr-namespace:Waldmann.Presentation.Features.Offers;assembly=Waldmann.Presentation"
+                     xmlns:res="clr-namespace:Waldmann.Presentation.Resources;assembly=Waldmann.Presentation"
+                     x:Class="Waldmann.Views.OffersPage"
+                     x:DataType="vm:OffersViewModel"
+                     Title="{x:Static res:Strings.Offers_Title}">
+    <ContentPage.Resources>
+        <local:EmbeddedImageConverter x:Key="EmbeddedImage" />
+    </ContentPage.Resources>
+
+    <Grid>
+        <CollectionView ItemsSource="{Binding Offers}" SelectionMode="None" Margin="12,0">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.Header>
+                <BoxView HeightRequest="4" Color="Transparent" />
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vm:OfferTile">
+                    <Frame Style="{StaticResource Card}" AutomationProperties.Name="{Binding Title}">
+                        <StackLayout Spacing="4">
+                            <Image Source="{Binding ImageKey, Converter={StaticResource EmbeddedImage}}" HeightRequest="110" Aspect="AspectFit" />
+                            <Label Text="{Binding Title}" FontAttributes="Bold" MaxLines="2" LineBreakMode="TailTruncation" />
+                            <Label Text="{Binding AnimalText}" Style="{StaticResource Secondary}" />
+                            <Label Text="{Binding PriceText}" TextColor="{StaticResource Accent}" FontAttributes="Bold" />
+                            <Label Text="{Binding RatingStars}"
+                                   TextColor="{StaticResource Rating}"
+                                   FontSize="18"
+                                   AutomationProperties.Name="{Binding RatingDescription}" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="{StaticResource Accent}" VerticalOptions="Center" />
+    </Grid>
+</views:ViewModelPage>

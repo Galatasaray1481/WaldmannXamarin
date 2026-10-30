@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ViewModelPage xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:views="clr-namespace:Waldmann.Views"
+                     xmlns:vm="clr-namespace:Waldmann.Presentation.Features.Chats;assembly=Waldmann.Presentation"
+                     xmlns:res="clr-namespace:Waldmann.Presentation.Resources;assembly=Waldmann.Presentation"
+                     x:Class="Waldmann.Views.ChatsPage"
+                     x:DataType="vm:ChatsViewModel"
+                     Title="{x:Static res:Strings.Chats_Title}">
+    <Grid RowDefinitions="*,Auto">
+        <CollectionView ItemsSource="{Binding Messages}" SelectionMode="None" Margin="12,8">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vm:ChatLine">
+                    <Frame Style="{StaticResource Card}">
+                        <StackLayout Spacing="2">
+                            <Label Text="{Binding Sender}" FontAttributes="Bold" />
+                            <Label Text="{Binding Content}" Style="{StaticResource Secondary}" FontSize="15" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Sending had no function in the prototype; it stays visibly disabled. -->
+        <StackLayout Grid.Row="1" Padding="12" Spacing="6" BackgroundColor="{StaticResource Surface}">
+            <Label Text="{x:Static res:Strings.Chats_SendingInPreparation}" Style="{StaticResource Secondary}" />
+            <Entry Placeholder="{x:Static res:Strings.Chats_MessagePlaceholder}" IsEnabled="False" />
+        </StackLayout>
+    </Grid>
+</views:ViewModelPage>

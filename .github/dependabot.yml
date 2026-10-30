@@ -1,0 +1,17 @@
+version: 2
+updates:
+  # Xamarin.Forms/Essentials are at their final versions; updates there are not expected.
+  - package-ecosystem: nuget
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      libraries:
+        patterns: [ "CommunityToolkit.*", "Microsoft.Extensions.*", "PolySharp" ]
+      tests:
+        patterns: [ "NUnit*", "Moq", "coverlet.*", "Microsoft.NET.Test.Sdk", "NetArchTest.Rules" ]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
